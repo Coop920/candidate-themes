@@ -35,7 +35,5 @@ function joshcooper_bling_page_alter(&$page) {
 		$page['content']['system_main']['nodes'][2]['webform']['#form']['submitted']['payment_information']['payment_fields']['credit']['how_did_you_hear_about_us'] = $page['content']['system_main']['nodes'][2]['webform']['#form']['submitted']['payment_information']['how_did_you_hear_about_us'];
 		//unset original location of webform element
 		unset($page['content']['system_main']['nodes'][2]['webform']['#form']['submitted']['payment_information']['how_did_you_hear_about_us']);
-		
-		$page['content']['system_main']['nodes'][2]['webform']['#form']['submit']['#weight'] = 999;
 	}
 }
