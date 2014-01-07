@@ -1,0 +1,945 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote,q {
+  quotes: none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+ins {
+  background-color: #eee;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background-color: #eee;
+  color: #000;
+  font-style: italic;
+  font-weight: 700;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+input,select {
+  vertical-align: middle;
+}
+
+pre,code,kbd,samp {
+  font-family: monospace, sans-serif;
+}
+
+/*
+ * BASELINE STYLES
+ */
+/* always force a scrollbar in non-IE */
+html {
+  overflow-y: scroll;
+}
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover,a:active {
+  outline: none;
+  cursor: pointer;
+}
+
+.close a,.close a:active,.close a:visited {
+  color: #848484 !important;
+  text-decoration: none;
+  font-weight: 400 !important;
+  border-bottom: 1px dotted;
+}
+
+ul,ol {
+  list-style-position: inside;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+/* Remove margins for navigation lists */
+nav ul,nav li {
+  margin: 0;
+}
+
+small {
+  font-size: 85%;
+}
+
+strong,th {
+  font-weight: 700;
+}
+
+td,td img {
+  vertical-align: top;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+pre {
+  padding: 15px;
+  white-space: pre;
+/* CSS2 */
+  white-space: pre-wrap;
+/* CSS 2.1 */
+  white-space: pre-line;
+/* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+/* IE */
+}
+
+textarea {
+  overflow: auto;
+}
+
+.ie6 legend,.ie7 legend {
+  margin-left: -7px;
+}
+
+/* align checkboxes, radios, text inputs with their label */
+input[type=radio] {
+  vertical-align: text-bottom;
+}
+
+input[type=checkbox] {
+  vertical-align: bottom;
+}
+
+.ie7 input[type=checkbox] {
+  vertical-align: baseline;
+}
+
+.ie6 input {
+  vertical-align: text-bottom;
+}
+
+/* hand cursor on clickable input elements */
+label,input[type=button],input[type=submit],button {
+  cursor: pointer;
+}
+
+/* webkit browsers add a 2px margin outside the chrome of form elements */
+/*button, input, select, textarea { margin: 0; } */
+/* colors for form validity */
+input:valid,textarea:valid {
+}
+
+input:invalid,textarea:invalid {
+  border-radius: 1px;
+  -moz-box-shadow: 0 0 5px red;
+  -webkit-box-shadow: 0 0 5px red;
+  box-shadow: 0 0 5px red;
+}
+
+.no-boxshadow input:invalid,.no-boxshadow textarea:invalid {
+  background-color: #f0dddd;
+}
+
+/* These selection declarations have to be separate.
+ */
+::-moz-selection {
+  background: #fdc82f;
+  color: #222;
+  text-shadow: none;
+}
+
+::selection {
+  background: #fdc82f;
+  color: #222;
+  text-shadow: none;
+}
+
+/*  iOS highlight color */
+a:link {
+  -webkit-tap-highlight-color: #FF5E99;
+}
+
+/* make buttons play nice in IE:
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {
+  width: auto;
+  overflow: visible;
+}
+
+/* bicubic resizing for non-native sized IMG:  */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/*
+ * Helpers
+ */
+/* for image replacement */
+.ir {
+  display: block;
+  text-indent: -999em;
+  overflow: hidden;
+  text-align: left;
+  direction: ltr;
+}
+
+/* Hide for both screenreaders and browsers
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/* Hide only visually, but have it available for screenreaders
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden  */
+.visuallyhidden {
+  position: absolute !important;
+  clip: rect(1px1px1px1px);
+/* IE6, IE7 */
+  clip: rect(1px,1px,1px,1px);
+}
+
+/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+.cf:before,.cf:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  zoom: 1;
+}
+
+/* Primary Styles
+ *  Author: Luke Connolly
+ */
+/*###########
+12 Column Grid at 978px with 30px gutters */
+.gridwrap {
+  max-width: 948px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.grid-color {
+  background: #ddd;
+}
+
+.grid-color p {
+  padding: 10px 0;
+}
+
+/*###########
+Typography */
+
+
+
+/*#########
+Main Styles */
+
+/* Mobile Styles Declared First */
+
+/* Structural */ 
+.small-12 {
+ width: 100%;
+ margin: 0; 
+}
+#content-wrap {
+ margin: 30px 0 0; 
+}
+	.head {
+ 	padding-top: 15px;   
+ }
+ 	.head > div {
+   margin-top: 0; 
+  }
+
+.head {
+  padding-bottom: 30px;
+}
+
+.right {
+  font-size: .8125em;
+}
+
+.close {
+  text-align: right;
+}
+
+.right ul {
+  padding-left: 1em;
+}
+
+.right ul li {
+  padding-bottom: 6px;
+}
+
+/* Base */
+body {
+  background: url('img/body-bg.gif') repeat 0 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  min-width: 320px;
+}
+ .pagewrap.content {
+   background-color: #fff;
+   padding: 20px 10px;
+ }
+ .pagewrap.head {
+   background-color: #f5f5f5;
+ }
+ .pagewrap.foot {
+   background-color: #f5f5f5;
+   padding: 24px 12px;
+ }
+a,
+a:hover,
+a:active {
+ color: #cc6600; 
+ text-decoration: none;
+	font-weight: 700;
+}
+
+
+/* Page Default Styles */
+
+/* Header */
+.pagewrap.head .grid {
+ margin: 0; 
+ font-family: Helvetica, Arial, sans-serif;
+}
+	.head #logo-top {
+  text-align: center;   
+ }
+	.head h1 {
+ 	color: #212121;
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 700;
+  margin: 10px 0 15px;   
+ }
+ #donation-message {
+  color: #434343;
+  font-size: 13px; 
+ }
+.pagewrap.head .grid-3 {
+ text-align: center;
+ margin: 40px 0 0;
+}
+	.pagewrap.head .grid-3 #image-top {
+  color: #656565;
+  font-size: 11px;
+  line-height: 13px;
+ }
+
+/* Content */
+
+/* Input Default Styles */
+.webform-client-form fieldset {
+ padding: 0;
+ border: none;
+ margin: 0; 
+}
+	.webform-client-form legend {
+ 	margin: 0 0 8px;   
+ }
+  .webform-client-form .fieldset-legend {
+   color: #212121;
+   font-size: 16px;
+   font-weight: 700;
+  }
+	.webform-client-form fieldset .fieldset-wrapper {
+  position: relative;  
+ }
+ .webform-client-form .form-item {
+  margin: 0 0 15px; 
+  overflow: hidden;
+ }
+  .webform-client-form .form-item label {
+   color: #333;
+   line-height: 26px;
+  }
+  .webform-client-form .form-item label.error {
+			color: red;
+   font-size: 9px;
+   line-height: 12px;
+   clear: both;
+  }
+  .webform-client-form .form-item input.form-text {
+   border: 1px solid #acacac;
+   background-color: #fff;
+   -moz-box-shadow: inset 0 0 3px rgba(0,0,0,.5);
+   -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.5);
+   box-shadow: inset 0 0 3px rgba(0,0,0,.5);
+   height: 26px;
+   padding: 4px 5px;
+   font-size: 13px;
+   line-height: 16px;
+   width: 100%;
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+  }
+ 	.webform-client-form .form-item select {  
+  	border: solid 1px #ACACAC;
+	 } 
+		.form-item .description {
+  	 font-size: 11px;
+    line-height: 18px;
+    color: #666;   
+  }
+ 	.fundraiser_submit_message { 
+ 		margin: 0 0 20px;
+  }
+  #edit-actions {
+   border: 1px solid #fdc72f;
+   background-color: #fdc72f;
+   -moz-box-shadow: inset 0 0 3px rgba(255,255,255,.5);
+   -webkit-box-shadow: inset 0 0 3px rgba(255,255,255,.5);
+   box-shadow: inset 0 0 3px rgba(255,255,255,.5);
+   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0iaGF0MCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSI1MCUiIHkxPSIxMDAlIiB4Mj0iNTAlIiB5Mj0iLTEuNDIxMDg1NDcxNTIwMmUtMTQlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmYzQxYyIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZTM5NyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0idXJsKCNoYXQwKSIgLz4KPC9zdmc+);
+   background-image: -moz-linear-gradient(bottom, #ffc41c 0%, #ffe397 100%);
+   background-image: -o-linear-gradient(bottom, #ffc41c 0%, #ffe397 100%);
+   background-image: -webkit-linear-gradient(bottom, #ffc41c 0%, #ffe397 100%);
+   background-image: linear-gradient(bottom, #ffc41c 0%, #ffe397 100%);
+   float: left;
+   margin: 0;
+   min-width: 200px;
+  }
+   #edit-submit {
+    opacity: .91;
+    color: #2c2c2c;
+    font-family: "Myriad Pro";
+    font-size: 17px;
+    text-shadow: 0 1px 0 #ffda75;
+    background: none;
+    border: none;
+    padding: 0;
+    text-transform: uppercase;
+    padding: 15px 0 0 10px;
+    display: block;
+    line-height: 17px;
+    width: 100%;
+    text-align: left;
+    background: url('img/bg-submit-arrow.png') no-repeat 94% center;
+   }
+	.fundraiser_submit_message {
+ 	width: 30%; 
+  color: #878787;
+  font-size: 12px;
+ 	line-height: 16px; 
+  padding: 0 0 0 40px;
+  background: url('img/bg-lock.png') no-repeat left center;
+ }
+ 	/* Get rid of img and place new image via css */
+ 	.fundraiser_submit_message img {
+   display: none; 
+  }
+  
+/* Input Custom Styles */	
+
+	/* Donation Custom Styles */
+ #webform-component-donation--test {
+ 	font-size: 12px;  
+ }
+ #webform-component-donation--amount,
+ #webform-component-donation--other-amount {
+ }
+  #webform-component-donation--amount > label {
+   color: #212121;
+   font-size: 16px;
+   font-weight: 700;
+  }
+  #webform-component-donation--amount .form-item {
+   margin: 0 0 10px 0;
+   float: none !important; 
+   text-align: center;
+  }
+   #webform-component-donation--amount .form-item label {
+    display: block; 
+    color: #212121;
+    font-size: 18px;
+   }
+ #webform-component-donation--other-amount {
+  margin: -15px 0 15px;
+ }
+  #webform-component-donation--other-amount .description {
+   text-indent: 10px;
+  }
+ #webform-component-ratings {
+  text-align: center; 
+ }
+  #webform-component-ratings h3 {
+   color: #434343;
+   font-family: Helvetica, Arial, sans-serif;
+   font-size: 14px;
+   line-height: 18px;
+   font-weight: 700;
+   margin: 0 0 15px;
+  }
+  
+	/* Payment Options Custom Styles */
+ #webform-component-payment-options {
+  margin: 0 0 30px; 
+ }
+  #webform-component-payment-options .form-item {
+   margin: 0; 
+  }
+
+ /* Billing Information Custom Styles */
+ #webform-component-billing-information--donor-information {
+  margin-bottom: 0; 
+ }
+ #webform-component-billing-information--zip input {
+  width: auto !important;  
+ }
+ #edit-submitted-donation-amount .form-item {
+  float: left; 
+ }
+ #webform-component-billing-information--donor-information--stay-informed .form-item-submitted-billing-information-donor-information-stay-informed {
+  margin: 0; 
+ }
+  #webform-component-billing-information--donor-information--stay-informed .description {
+   margin: 0 0 0 25px; 
+  }
+ 
+ /* Payment Information Custom Styles */
+ .expiration-date-wrapper select {
+  margin: 0 5px 0 0; 
+ }
+
+
+/* Footer */
+.pagewrap.foot .grid-4 {
+ text-align: center;
+}
+.pagewrap.foot .grid-7 {
+ margin: 20px 0 0;
+}
+#efficiency-footer {
+ color: #7b8081;
+ font-weight: 700;
+ font-size: 14px;
+ line-height: 16px; 
+}
+
+/* Close */
+.close {
+ color: #848486; 
+ padding: 0 10px;
+}
+	.close .grid-12 {
+ 	margin: 30px auto 0;
+  float: none;   
+ }
+
+/* 768 Breakpoint */
+@media only screen and (min-width: 48em) {  
+
+ /* Structural */
+ .grid-1,.grid-2,.grid-3,.grid-4,.grid-5,.grid-6,.grid-7,.grid-8,.grid-9,.grid-10,.grid-11,.grid-12 {
+   margin-left: 15px;
+   margin-right: 15px;
+   float: left;
+   overflow: hidden;
+   margin-top: 30px;
+ }
+ .small-12 {
+  width: inherit; 
+ }
+ .grid-9 {
+  width: 70%; 
+ }
+ .grid-3 {
+  width: 30%; 
+ }
+ 
+	/* Base */
+ .pagewrap.content {
+   padding: 0 0 20px 0;
+ }
+ 
+ /* Page Default Styles */
+ 
+ /* Header */
+	.head #logo-top {
+  float: left;
+  margin: 0 20px 0 0;  
+ }
+ .pagewrap.head .grid-3 {
+  float: right; 
+ }
+
+	/* Content */
+ 
+ /* Input Custom Styles */	
+ 
+ /* Custom Common Styles */
+ #webform-component-billing-information .webform-component,
+ #webform-component-billing-information #zone-select-wrapper,
+ #webform-component-payment-information .form-item,
+ #webform-component-payment-information .expiration-date-wrapper {
+  float: left;
+  width: 48%;
+  margin-right: 3%;  
+ }
+ #webform-component-billing-information .webform-component:nth-of-type(even),
+ #webform-component-billing-information #zone-select-wrapper,
+ #webform-component-payment-information .expiration-date-wrapper,
+ #webform-component-payment-information #webform-component-payment-information--how-did-you-hear-about-us {
+  margin-right: 0; 
+ }
+ .fundraiser_submit_message {
+	 float: right;
+  position: relative;
+  right: 30%; 
+  margin: 5px 0 0;
+ }
+
+	/* Donation Custom Styles */
+ #webform-component-donation--amount,
+ #webform-component-donation--other-amount {
+  float: left; 
+ }
+ #webform-component-donation--test {
+  text-align: center; 
+ }
+ #webform-component-donation--amount {
+  margin-left: 20%; 
+ }
+ #webform-component-donation--other-amount {
+  margin: 0;
+  top: 23px;
+  position: relative;
+ }
+  #webform-component-donation--amount .form-item {
+   margin: 0 27px 0 0; 
+   float: left !important;
+  }
+   #webform-component-donation--amount .form-item label {
+    font-size: 13px;
+   }
+ #webform-component-donation--other-amount {
+  margin: 0;
+ }
+ 
+ /* Billing Information Custom Styles */
+ #zone-select-wrapper #webform-component-billing-information--state {
+ 	width: 100%;  
+ }
+ 
+ 
+ 
+ 
+
+ /* Footer */
+ .pagewrap.foot .grid-4 {
+  width: 35%;
+  float: left;
+ }
+ .pagewrap.foot .grid-7 {
+  width: 60%;
+  float: left;
+ }
+ 
+}
+
+/* 1024 Breakpoint */
+@media only screen and (min-width: 64em) {
+  
+ /* Structural */ 
+ .grid-1 {
+   width: 49px;
+ }
+ 
+ .grid-2 {
+   width: 128px;
+ }
+ 
+ .grid-3 {
+   width: 207px;
+ }
+ 
+ .grid-4 {
+   width: 286px;
+ }
+ 
+ .grid-5 {
+   width: 365px;
+ }
+ 
+ .grid-6 {
+   width: 444px;
+ }
+ 
+ .grid-7 {
+   width: 523px;
+ }
+ 
+ .grid-8 {
+   width: 602px;
+ }
+ 
+ .grid-9 {
+   width: 681px;
+ }
+ 
+ .grid-10 {
+   width: 760px;
+ }
+ 
+ .grid-11 {
+   width: 839px;
+ }
+ 
+ .grid-12 {
+   width: 918px;
+ }
+ .left-1 {
+   margin-left: 94px;
+ }
+ 
+ .left-2 {
+   margin-left: 173px;
+ }
+ 
+ .left-3 {
+   margin-left: 252px;
+ }
+ 
+ .left-4 {
+   margin-left: 331px;
+ }
+ 
+ .left-5 {
+   margin-left: 410px;
+ }
+ 
+ .left-6 {
+   margin-left: 489px;
+ }
+ 
+ .left-7 {
+   margin-left: 568px;
+ }
+ 
+ .left-8 {
+   margin-left: 647px;
+ }
+ 
+ .left-9 {
+   margin-left: 726px;
+ }
+ 
+ .left-10 {
+   margin-left: 805px;
+ }
+ .close {
+  padding: 0; 
+ }
+ 
+ /* Base */
+ 
+ /* Input Custom Styles */
+ 
+ /* Custom Common Styles */
+ #webform-client-form-2 {
+  margin: 0 0 0 20px; 
+  min-height: 860px;
+ }
+ #webform-component-billing-information .webform-component,
+ #webform-component-billing-information #zone-select-wrapper,
+ #webform-component-payment-information .form-item,
+ #webform-component-payment-information .expiration-date-wrapper {
+  width: 310px;
+  margin-right: 45px;  
+ }
+ #webform-component-billing-information .webform-component:nth-of-type(even),
+ #webform-component-billing-information #zone-select-wrapper,
+ #webform-component-payment-information .expiration-date-wrapper,
+ #webform-component-payment-information #webform-component-payment-information--how-did-you-hear-about-us {
+  margin-right: 0; 
+ }
+
+	/* Donation Custom Styles */
+ #webform-component-donation {
+  float: left; 
+ }
+ #webform-component-donation--amount {
+  margin: 0; 
+ }
+  #webform-component-donation--other-amount {
+   margin: 0;
+   position: absolute;
+   right: -50px;
+   top: 80px; 
+  }
+ #webform-component-donation--test {
+  text-align: left; 
+ }
+ #webform-component-ratings {
+  float: right; 
+  max-width: 230px;
+  text-align: left;
+ }
+ 
+	/* Payment Options Custom Styles */
+ #webform-component-payment-options {
+  clear: both; 
+ } 
+ 
+	/* Billing Information Custom Styles */
+ #webform-component-billing-information .form-item.webform-component-textfield label,
+ #webform-component-billing-information .form-item.webform-component-email label,
+ #webform-component-billing-information .form-item.webform-component-select label {
+  float: left;
+  width: 105px;
+  margin: 0 5px 0 0;
+ }
+ #webform-component-billing-information .form-item input.form-text {
+  float: left; 
+ 	width: 200px;
+ }
+ #webform-component-billing-information .form-item select {
+  width: 200px; 
+ }
+ #webform-component-billing-information #webform-component-billing-information--address-line-2 input {
+  float: right; 
+ }
+ 
+	/* Payment Information Custom Styles */
+ #webform-component-payment-information {
+  margin: 0 0 15px;  
+ }
+ #webform-component-payment-information .form-item.form-type-textfield label,
+ #webform-component-payment-information .form-item.form-type-select label,
+ #webform-component-payment-information .form-item.webform-component-select label {
+  float: left;
+  width: 128px;
+  margin: 0 5px 0 0;
+ }
+ .form-item-submitted-payment-information-payment-fields-credit-card-cvv input {
+  width: auto !important; 
+ }
+	#webform-component-payment-information .form-item input.form-text {
+  float: left; 
+ 	width: 175px;
+ }
+ #webform-component-payment-information--how-did-you-hear-about-us label {
+  line-height: 16px; 
+ }
+
+
+
+
+}
+
+
+
+@media print {
+  * {
+    background: transparent !important;
+    color: #444 !important;
+    text-shadow: none !important;
+  }
+
+  a,a:visited {
+    color: #444 !important;
+    text-decoration: underline;
+  }
+
+  a:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr:after {
+    content: " (" attr(title) ")";
+  }
+
+  .ir a:after {
+    content: "";
+  }
+
+  /* Don't show links for images */
+  pre,blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr,img {
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: .5cm;
+  }
+
+  p,h2,h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,h3 {
+    page-break-after: avoid;
+  }
+
+}
+
+/* IE Max-width hack */
+#container,#footer {
+  width: expression(document.body.clientWidth<742?"740px":document.body.clientWidth>1202?"1200px":"auto");
+}
