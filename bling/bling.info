@@ -1,5 +1,0 @@
-name = Bling
-core = 7.x
-engine = phptemplate
-
-stylesheets[all][] = layout.css
